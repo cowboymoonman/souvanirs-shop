@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.scss">
+    <link rel="stylesheet" href="css/reponsive.css">
+    <link rel="stylesheet" href="css/skins/crimson.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/styleSwitcher.css">
+
+    <!-- doi mau -->
+    <link rel="stylesheet" title="crimson" class="alternate-style" href="css/skins/crimson.css" disabled>
+    <link rel="stylesheet" title="blue" class="alternate-style" href="css/skins/blue.css" disabled>
+    <link rel="stylesheet" title="indigo" class="alternate-style" href="css/skins/indigo.css" disabled>
+    <link rel="stylesheet" title="aqua" class="alternate-style" href="css/skins/aqua.css" disabled>
+    <link rel="stylesheet" title="black" class="alternate-style" href="css/skins/black.css" disabled>
+    <title>Document</title>
+</head>
+<body ng-app = "myModule" ng-controller = "myController">
+    <header class="header fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <!-- Brand -->
+                <a class="navbar-brand" href="#"><span class="logo-circle"></span> Souvaneer </a>
+              
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#home">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#about">Thông Tin</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#features">Chức Năng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Sản Phẩm</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#testimonial">Đánh Giá</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#contact">Liên Hệ</a>
+                      </li>
+                      <li class="nav-item " >
+                        <a class="nav-link active" onclick="xemgio()"  href="#">Giỏ Hàng (3)</a>
+                      </li>
+                      <div class="gio" id="cart">
+                        <div class="container">
+
+
+
+                          <div class="shopping-cart" >
+
+
+                            <div class="shopping-cart-header " >
+                              <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+                              <div class="shopping-cart-total">
+                                <span class="lighter-text">Tổng Tiền:</span>
+                                <span class="main-color-text">{{total}}</span>
+                              </div>
+                            </div> <!--end shopping-cart-header -->
+                        
+                            <ul class="shopping-cart-items" ng-repeat = "cart in carts" ng-init = "setTotals(cart)" >
+                              <li class="clearfix">
+                                <img src="images/products/{{cart.p_image}}" width="30%" alt="item1" />
+                                <span class="item-name">  {{cart.p_name}}</span>   
+                                <span class="item-price">  {{cart.p_price}}</span><br>
+                                <span class="item-quantity">Số Lượng: 01</span>
+                                <br>
+                                <i class="fas fa-trash" type = "button" ng-click = "remove_cart(cart)"> </i>
+                              </li>
+                        
+                            </ul>
+                          
+                          </div> <!--end shopping-cart -->
+                        </div> <!--end container -->
+                      </div>
+                  </ul>
+                </div>
+                
+              </nav>
+              
+        </div>
+    </header>
+    <!-- home -->
+    <section class="home-section" id="home">
+        <div class="bg-shapes">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+<div class="home-content">
+    <h1> Sản Phẩm Tuyệt Vời Dành Cho Bạn
+    </h1>
+    <p>    Đo mức oxy trong máu của bạn bằng một ứng dụng và cảm biến mới mang tính cách mạng. Xem nhanh các chỉ số thể dục của bạn với màn hình Retina luôn bật cải tiến. Với Sản Phẩm Này trên cổ tay của bạn, một cuộc sống khỏe mạnh hơn, năng động hơn, kết nối hơn nằm trong tầm tay.
+    </p>
+    <a href="#" class="btn mybtn1" id="mua1"> Mua Ngay 3500k</a>
+</div>
+                </div>
+                <div class="col-lg-6 order-first order-lg-last">
+                    <div class="home-img">
+                        <img src="images/watch-01.png" alt="san pham">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- home -->
+<!-- about -->
+<section class="about-section" id="about">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 d-flex">
+<div class="about-img">
+    <img class="img-fluid" src="images/unnamed.jpg" alt="sanpham">
+</div>
+        </div>
+        <div class="col-lg-6 order-first order-lg-last">
+            <div class="section-title">
+<h1 class="title">Về Sản Phẩm</h1>
+<h2 class="subtitle">"Đĩa đồng miếu Quốc Tự Giám" Làm Cho Căn Phòng Khách Trở Nên Hoài Cổ</h2>
+            </div>
+            <div class="about-content">
+<p>    Mặc dù đồng đĩa đồng không thể làm được nhiều việc hơn là chỉ để trang trí, nhưng chúng thường có sự tinh tế trong thiết kế.
+</p>
+<ul class="list-unstyled">
+<li> <i class="fas fa-check"></i>   Tất cả các sản phẩm của chúng tôi đều có chất lượng cao </li>
+<li> <i class="fas fa-check"></i>  Cam kết về giá cả và chất lượng của sản phẩm </li>
+<li> <i class="fas fa-check"></i>  Thiết kế bắt mắt, hợp thời trang </li>
+<li> <i class="fas fa-check"></i>   Bảo hành sản phẩm miền phí trên toàn quốc </li>
+</ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+<!-- about -->
+<!-- feature -->
+
+<section class="features-section bg-light" id="features">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="section-title ">
+          <h1 class="title">Đặc Trưng</h1>
+          <h2 class="subtitle">Tiện lợi đặc trưng khi mua tận tay</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-lg-4 d-flex">
+        <div class="col-lg-12 features-item">
+          <div class="icon"><i class="fas fa-bell"></i></div>
+          <h3>Nhận Thông Báo</h3>
+          <p>Chúng Tôi Cố Gắng Thông Báo Tới Bạn Nhanh Nhất Có Thể</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4  d-flex">
+        <div class="col-lg-12 features-item">
+          <div class="icon"><i class="fab fa-bluetooth-b"></i></div>
+          <h3>Bluetooth</h3>
+          <p>Tất Cả Sản Phẩm Đều Hỗ Trợ Bluetooth</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4  d-flex">
+        <div class="col-lg-12 features-item">
+          <div class="icon"><i class="fas fa-wifi"></i></div>
+          <h3> Hỗ Trợ Wifi</h3>
+          <p>Tất Cả Sản Phẩm Có Hỗ Trợ Wifi</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4  d-flex">
+        <div class="col-lg-12 features-item">
+          <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>Định Vị GPS</h3>
+          <p>Không Lo Mất Cắp Vì Đã Có GPS</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4  d-flex">
+        <div class="col-lg-12 features-item">
+          <div class="icon"><i class="fas fa-comments"></i></i></div>
+          <h3>Hỗ Trợ Trực Tuyến</h3>
+          <p>Chúng Tôi Hỗ Trợ Mọi Lúc Mọi Nơi Mọi Thời Điểm.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4  d-flex">
+        <div class="col-lg-12 features-item">
+          <div class="icon"><i class="fas fa-camera"></i></div>
+          <h3>Hình Ảnh</h3>
+          <p>Cam Kết Sản Phẩm Đúng Như Hình Ảnh Trên WebSide.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- feature -->
+<!-- product -->
+
+
+
+<section class="products-section" id="products"> 
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        
+        <div class="section-title">
+          <h1 class="title">Các Sản Phẩm</h1>
+          <h2 class="subtitle">Chúng tôi có rất nhiều sản phẩm tuyệt vời và Chính hãng</h2>
+        </div>
+
+      </div>
+    </div>
+    Tìm Kiếm  
+    <input type="text" ng-model ="a">
+    <div class="row">
+      <div class="owl-carousel" id="product-carousel" >   
+
+      
+
+
+       <div class="col-lg-12 "  id = "p_list" ng-repeat = "product in products|filter :a " >
+        <div class="products-item">
+          <div class="product-img">
+<img class="img-fluid" ng-src="images/products/{{product.p_image}}" alt="">
+<div class="overlay d-flex">
+  <a class="btn mybtn1" type = "button" ng-click = "add_cart(product)">Mua Ngay</a>
+</div>
+          </div>
+          <div class="product-content">
+
+      
+          <div class="product-price">
+            <span class="new-price">{{product.p_price}} VND</span>
+            <span class="old-price">95 VND</span>
+          </div>
+          <h5 class="product-name">{{product.p_name}}</h5>
+        </div>
+      </div>
+      </div>
+
+
+
+
+     
+
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- đánh giá -->
+<section class="testimonial-section" id="testimonial">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        
+        <div class="section-title">
+          <h1 class="title">Các Đánh Giá</h1>
+          <h2 class="subtitle">Phản Hồi Tích Cực Từ Khách Hàng</h2>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="owl-carousel" id="testimonial-carousel">
+<!-- item -->
+      <div class="col-lg-12">
+<div class="testi-item">
+  <div class="testi-comment">
+<p>
+  <i class="fas fa-quote-left"></i>
+  Sản Phẩm Này Thật Tuyệt Với, tôi rất thích nó. Tôi sẽ tiếp tục ủng hộ
+  <i class="fas fa-quote-right"></i>
+</p>
+<ul class="stars list-unstyled">
+  <li><i class="fas fa-star"></i></li>
+  <li><i class="fas fa-star"></i></li>
+  <li><i class="fas fa-star"></i></li>
+  <li><i class="fas fa-star-half-alt"></i></li>
+  <li><i class="far fa-star"></i></li>
+</ul>
+  </div>
+  <div class="client-info">
+    <img src="images/testimonial/1.jpg" alt="">
+    <h5>Datto</h5>
+    <p>CEO</p>
+  </div>
+</div>
+      </div>
+<!-- item -->
+<!-- item -->
+<div class="col-lg-12">
+  <div class="testi-item">
+    <div class="testi-comment">
+  <p>
+    <i class="fas fa-quote-left"></i>
+    Sản Phẩm Này Thật Tuyệt Với, tôi rất thích nó. Tôi sẽ tiếp tục ủng hộ    <i class="fas fa-quote-right"></i>
+  </p>
+  <ul class="stars list-unstyled">
+    <li><i class="fas fa-star"></i></li>
+    <li><i class="fas fa-star"></i></li>
+    <li><i class="fas fa-star"></i></li>
+    <li><i class="fas fa-star-half-alt"></i></li>
+    <li><i class="far fa-star"></i></li>
+  </ul>
+    </div>
+    <div class="client-info">
+      <img src="images/testimonial/2.jpg" alt="">
+      <h5>Datto 02</h5>
+      <p>CEO</p>
+    </div>
+  </div>
+        </div>
+  <!-- item -->
+  <!-- item -->
+  <div class="col-lg-12">
+    <div class="testi-item">
+      <div class="testi-comment">
+    <p>
+      <i class="fas fa-quote-left"></i>
+      Sản Phẩm Này Thật Tuyệt Với, tôi rất thích nó. Tôi sẽ tiếp tục ủng hộ      <i class="fas fa-quote-right"></i>
+    </p>
+    <ul class="stars list-unstyled">
+      <li><i class="fas fa-star"></i></li>
+      <li><i class="fas fa-star"></i></li>
+      <li><i class="fas fa-star"></i></li>
+      <li><i class="fas fa-star-half-alt"></i></li>
+      <li><i class="far fa-star"></i></li>
+    </ul>
+      </div>
+      <div class="client-info">
+        <img src="images/testimonial/3.jpg" alt="">
+        <h5>Datto 03</h5>
+        <p>CEO</p>
+      </div>
+    </div>
+          </div>
+    <!-- item -->
+    
+    </div>
+    </div>
+  </div>
+</section>
+<!-- đánh giá -->
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="section-title">
+          <h1 class="title">FAQ</h1>
+          <h2 class="subtitle">Các Câu Hỏi Thường Gặp</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-6">
+<div class="faq-item">
+  <h4>Cách Để Mua Sản Phẩm?</h4>
+  <p>Bạn có thể mua hàng một cách dễ dàng trên website của chúng tôi</p>
+</div>
+  </div>
+  <div class="col-md-6">
+    <div class="faq-item">
+      <h4>Phương Thức Thanh Toán?</h4>
+      <p>Thanh Toán Bằng Các 2 Hình Thức Là: Chuyển Khoản và Qua Thẻ.</p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="faq-item">
+      <h4>Cách Để check sản phẩm?</h4>
+      <p>Bạn có thể ra tận văn phòng souvvaneer để kiểm tra</p>    </div>
+    </div>
+    <div class="col-md-6">
+      <div class="faq-item">
+        <h4>Cách Để Mua sản phẩm</h4>
+        <p>Bạn có thể mua hàng một cách dễ dàng trên website của chúng tôi</p>      </div>
+            </div>
+      <div class="col-md-6">
+        <div class="faq-item">
+          <h4>Cách Để Mua sản phẩm?</h4>
+          <p>Bạn có thể mua hàng một cách dễ dàng trên website của chúng tôi</p>        </div>
+    </div>
+    <div class="col-md-6">
+      <div class="faq-item">
+        <h4>Cách Để Mua sản phẩm?</h4>
+        <p>Bạn có thể mua hàng một cách dễ dàng trên website của chúng tôi</p>      </div>
+            </div>
+
+<div class="col-lg-12">
+  <p class="support-text text-center">Đặt Câu hỏi <a href="#">minhnhat@gmail.com</a></p>
+</div>
+
+    </div>
+  </div>
+</section>
+<!-- FAQ -->
+
+<!-- seletter -->
+
+<section class="newletter-section">
+  <div class="container">
+    <div class="row justify-content-center">
+
+<div class="col-lg-7">
+  <div class="section-title">
+    <h1 class="title">Đại Lý Mới</h1>
+    <h2 class="subtitle">Đăng Ký Làm Đại Lý Mới</h2>
+  </div>
+</div>
+
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-10 col-lg-7 ">
+    <form class="newsletter-form">
+      <div class="form-group">
+      <input type="text" class="form-control" placeholder="Email">
+    </div>
+    <button class="btn mybtn2" type="submit">
+      <span> Đăng Ký </span>
+      <i class="fas fa-paper-plane"></i>
+    </button>
+    </form>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- seletter -->
+
+<!-- contact -->
+<section class="contact-section" id="contact">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <div class="section-title">
+        <h1 class="title">Liên Hệ</h1>
+        <h2 class="subtitle">Gửi Góp Ý Của Bạn</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+      <form   class="contact-form" name="form" >
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input class="form-control" type="text" placeholder="Nhập Tên Bạn" ng-model="fullname"  name="txtFullname" maxlength="25" required>
+              <span ng-show="form.txtFullname.$invalid">Vui lòng nhập họ tên</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input class="form-control" placeholder="Nhập Email" ng-model="email" name="txtemail" type="email">
+              <span ng-show="form.txtemail.$invalid">Không đúng dạng email</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <textarea class="form-control" placeholder="Góp Ý"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <button type="submit" class="btn mybtn2">Gửi Góp Ý</button>
+          </div>
+        </div>
+      </form>
+    </div>
+<div class="col-md-5 order-first order-md-last">
+
+  <div class="contact-item">
+    <div class="icon">
+      <i class="fas fa-map-marker-alt"></i>
+    </div>
+    <h5>Vị trí</h5>
+    <p>B261 Q12, HCM</p>
+  </div>
+
+  <div class="contact-item">
+    <div class="icon">
+      <i class="fas fa-envelope"></i>
+    </div>
+    <h5>Email</h5>
+    <p>Nhat@gmail.com</p>
+  </div>
+
+  <div class="contact-item">
+    <div class="icon">
+      <i class="fas fa-phone"></i>
+    </div>
+    <h5>Điện Thoại</h5>
+    <p>000000123213</p>
+  </div>
+
+</div>  
+  </div>
+</div>
+</section>
+<!-- contact -->
+
+<!-- footer -->
+
+<footer class="footer">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="footer-logo">
+          <a href=""><span class="logo-circle"></span> SOURVANEER</a>
+        </div>
+        <div class="footer-text">
+          <p>Chúng Tôi Cung Cấp Những Mặt Hàng Chất Lượng Nhất</p>
+        </div>
+        <div class="footer-social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- footer -->
+<!-- doi mau -->
+  <div class="style-switcher">
+    <div class="toggle-style-switcher">
+      <i class="fa fa-cog fa-spin"></i>
+    </div>
+    <h5>Chọn màu</h5>
+    <ul class="list-unstyled">
+      <li title="crimson" style="background-color: #d70d25;" onclick="setActiveStyle('crimson')"></li>
+      <li title="crimson" style="background-color: #4948d4;" onclick="setActiveStyle('blue')"></li>
+      <li title="crimson" style="background-color: #6400ae;" onclick="setActiveStyle('indigo')"></li>
+     <li title="crimson" style="background-color: #05b3b6;" onclick="setActiveStyle('aqua')"></li>
+      <li title="crimson" style="background-color: #222222;" onclick="setActiveStyle('black')"></li>
+
+    </ul>
+  </div>
+<!-- doi mau -->
+
+<!-- load -->
+<div class="preloader">
+<div class="loader">
+
+</div>
+</div>
+<!-- load -->
+<script>
+  
+  var test = document.getElementById("mua1");
+  var thu="";
+  test.addEventListener("click", function(){
+   thu = test.parentElement.children[2].textContent;
+   console.log(thu);
+  alert(thu);
+  })
+  
+</script>
+<!-- product -->
+<script src="js/angular.js"></script>
+      <script src="js/app.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/styleSwitcher.js"></script>
+</body>
+</html>
